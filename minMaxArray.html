@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Min - Max Array</title>
+</head>
+
+<body>
+    <script>
+        function numberMax(arr) {
+            let array = arr.slice(); // membuat dan meng clone ke array local
+            for (let a = 1; a <= array.length; a++) {
+                if (array[a - 1] > array[a]) {
+                    array[a] = array[a - 1];
+                }
+            }
+            return array;
+        }
+
+        function numberMin(arr) {
+            let array = arr.slice(); // membuat dan meng clone ke array local
+            for (let a = 1; a <= array.length; a++) {
+                if (array[a - 1] > array[a]) {
+                    array[a] = array[a];
+                } else if (array[a - 1] < array[a]) {
+                    array[a] = array[a - 1]
+                }
+            }
+            return array;
+        }
+
+        function arrayJenis(array) {
+            let jumlah = 0;
+            for (var a = 1; a <= array.length; a++) {
+                if (array[a - 1] != array[a]) {
+                    jumlah++;
+                }
+            }
+            return jumlah - 1;
+        }
+        let array1 = [10, 5, 8, 12, 7, 4, 1];
+        document.write(arrayJenis(numberMax(array1)));
+        document.write(" & ");
+        document.write(arrayJenis(numberMin(array1)));
+    </script>
+</body>
+
+</html>
